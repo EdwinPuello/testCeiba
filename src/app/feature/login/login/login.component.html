@@ -1,0 +1,46 @@
+<div class="wrapper">
+  
+  <form class="form-signin" [formGroup]="form">
+    <div class="row">
+      <h3 class="form-signin-heading">Bienvenido</h3>
+    
+        <div class="col-12">
+          <input  formControlName="email"  id="login__email" type="text" class="white large outlined" placeholder="Correo">
+  
+          <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)">
+            <div *ngIf="form.controls['email'].errors.required">
+            <p class="form-hint error-text" id="login__email-error">Email is required</p>
+          </div>
+        </div>
+        </div>
+    
+        <div class="mt-1">
+          <input formControlName="password" id="login__password" type="password" class="white large outlined" placeholder="Contraseña">
+          <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)">
+            <div *ngIf="form.controls['password'].errors.required">
+              <p class="form-hint error-text" id="login__password-error">Password is required</p>
+          </div>
+          <div *ngIf="form.controls['password'].errors.minlength">
+            <p class="form-hint error-text" id="login__password-error">The minimum of characters will be 8</p>
+        </div>
+        </div>
+        </div>
+        <div *ngIf="errorFound" class="alert filled error">
+          {{errorFound}}
+      </div>
+        
+        <button (click)="btnLogin()" [disabled]="!form.valid" id="login__btn-login" class="secondary botton">Iniciar Sesión</button>
+    
+    
+    </div>
+  
+  </form>
+  
+</div>
+
+
+
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = login__email, login__password, login__password-error, login__email-error, login__btn-login
+-->

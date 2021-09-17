@@ -1,0 +1,43 @@
+<div class="wrapper">
+  
+  <form class="form-signin" [formGroup]="form">
+    <div class="row">
+      <h3 class="form-signin-heading">Crear Usuario</h3>
+    
+      <div class="mt-1">
+        <input id="user-create__name" formControlName="name" type="text" class="white large outlined" placeholder="Name">
+        <div *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)">
+          <div *ngIf="form.controls['name'].errors.required">
+            <p class="form-hint error-text" id="user-create__name-error">Name is required</p>
+        </div>
+      </div>
+      </div>
+
+        <div>
+          <input id="user-create__job" formControlName="job"  type="text" class="white large outlined" placeholder="Job">
+  
+          <div *ngIf="form.controls['job'].invalid && (form.controls['job'].dirty || form.controls['job'].touched)">
+            <div id="user-create__job-error" *ngIf="form.controls['job'].errors.required">
+            <p id="user-create__job-error" class="form-hint error-text">Job is required</p>
+          </div>
+        </div>
+        </div>
+  
+        
+        <button (click)="create()" [disabled]="!form.valid" id="user-create__btn-create" class="secondary botton">Crear usuario</button>
+    
+        <div *ngIf="infoUserCreate" class="alert filled success">
+          Usuario creado exitosamente <br> Name: {{infoUserCreate.name}}  <br> Job: {{infoUserCreate.job}} 
+        
+      </div>
+    
+    </div>
+  
+  </form>
+  
+</div>
+
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = user-create__name, user-create__name-error, user-create__job, user-create__job-error, user-create__btn-create
+-->

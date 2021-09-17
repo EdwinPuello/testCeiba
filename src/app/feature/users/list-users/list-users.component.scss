@@ -1,0 +1,25 @@
+.img{
+    border-radius: 50%;
+    width: 80px;
+}
+
+.center{
+    text-align: center;
+}
+
+.noinfo{
+    display: flex;
+    justify-content: center;
+    padding-top: 6%;
+}
+
+.horizontal-scroll {
+    overflow: hidden;
+    overflow-x: auto;
+    clear: both;
+    width: 100%;
+  }
+  
+  .my-table {
+    min-width: rem-calc(640);
+  }

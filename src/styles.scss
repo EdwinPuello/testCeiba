@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import "node_modules/h8k-design/lib/index.scss";
+
+:root {
+    body {
+        background: #eee !important;	
+    }
+    
+    .wrapper {	
+      padding-top: 80px;
+      margin-bottom: 80px;
+    }
+    
+    .form-signin {
+      border-radius: 7px;
+      max-width: 380px;
+      padding: 15px 35px 45px;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 1px solid rgba(0,0,0,0.1);  
+    
+      .form-signin-heading,
+        .checkbox {
+          margin-bottom: 30px;
+        }
+    
+        .checkbox {
+          font-weight: normal;
+        }
+    
+        .form-control {
+          position: relative;
+          font-size: 16px;
+          height: auto;
+          padding: 10px;
+    
+            &:focus {
+              z-index: 2;
+            }
+        }
+    }
+    
+    .botton{
+        display: block;
+        margin: auto;
+        margin-top: 9%;
+    }
+    
+    input[type="text"] {
+        width: 90%;
+        margin-bottom: -1px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    
+    input[type="password"] {
+        width: 90%;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}

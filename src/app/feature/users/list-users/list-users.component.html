@@ -1,0 +1,57 @@
+<h3>Lista de usuarios</h3>
+
+<div class="card w-100 mx-auto pb-30">
+  <h4 class="noinfo" *ngIf="usersList.length == 0">No hay información</h4>
+  <div class="form-group">
+    <input id="user-list__filter" type="text" class="white large form-control" name="user-list__filter" placeholder="Buscar" [(ngModel)]="filterPost">
+  </div>
+  <div class="horizontal-scroll">
+    <table class="my-table" id="user-list__table">
+        <thead>
+        <tr>
+            <th scope="col" class="center">Foto</th>
+            <th scope="col" class="">Nombres </th>
+            <th scope="col" class="">Correo</th>
+            <th scope="col" class="numeric">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of usersList | filterUserByName:filterPost; let i = index">
+          <td class="center">
+            <img id="user-list__table-item-{{i}}-avatar" class="img" [src]="item.avatar">
+          </td>
+          <td>
+            <span id="user-list__table-item-{{i}}-first_name">
+              {{item.first_name}} 
+            </span>
+            <span>
+              {{item.last_name}}
+            </span>
+            </td>
+            <td>
+              <label id="user-list__table-item-{{i}}-email">
+                {{item.email}}
+              </label>
+            </td>
+            <td class="numeric">
+              <button id="user-list__table-item-{{i}}-btn-delete" (click)="borrar(item,i)" class="danger">Borrar</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="userDelete" class="alert filled success">
+    El usuario <strong>{{userDelete.first_name}} {{userDelete.last_name}}</strong> ha sido borrado exitosamente
+  </div>
+  <button [disabled]="paginaActual == 1" (click)="listarUsiarios(false)">Atrás</button>
+  <button [disabled]="userDataPageInfo.total_pages == paginaActual" (click)="listarUsiarios(true)">Siguiente</button>
+  Pagina Acutal {{paginaActual}}
+  Paginas totales {{userDataPageInfo.total_pages}}
+</div>
+<!--
+  Recuerde conservar los id, no deben ser modificados
+  ids = user-list__filter, user-list__table, user-list__table-item-[index], user-list__table-item-[index]-avatar, user-list__table-item-[index]-first_name, user-list__table-item-[index]-email, user-list__table-item-[index]-btn-delete
+  Remplazar [index] por el valor ejemplo "user-list__table-item-0"
+-->
+
